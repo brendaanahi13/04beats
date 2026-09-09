@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>04BEATS— Géneros Musicales</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilos.css">
+<style>
+  :root {
+    --fondo: #101018;
+    --fondo-2: #17141f;
+    --texto: #f2ede4;
+    --texto-tenue: #a79f92;
+    --acento: #e3b23c;
+    --fuente-display: 'Fraunces', serif;
+    --fuente-cuerpo: 'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: var(--fuente-cuerpo);
+    line-height: 1.5;
+  }
+
+  .portada {
+    padding: 6rem 1.5rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .portada .ceja {
+    color: var(--acento);
+    font-family: var(--fuente-cuerpo);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0 0 1rem;
+  }
+
+  .portada h1 {
+    font-family: var(--fuente-display);
+    font-weight: 600;
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    line-height: 1.05;
+    margin: 0 0 1.25rem;
+    max-width: 14ch;
+  }
+
+  .portada p {
+    color: var(--texto-tenue);
+    font-size: 1.1rem;
+    max-width: 52ch;
+    margin: 0;
+  }
+
+  .mapa {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1.5rem 6rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 700px) {
+    .mapa { grid-template-columns: 1fr; }
+  }
+
+  .genero {
+    position: relative;
+    display: block;
+    padding: 2.25rem 1.75rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    isolation: isolate;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .genero:hover {
+    transform: translateY(-3px);
+  }
+
+  .genero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.85;
+    background: var(--gradiente);
+  }
+
+  .genero .numero {
+    font-family: var(--fuente-display);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0 0 0.75rem;
+  }
+
+  .genero h2 {
+    font-family: var(--fuente-display);
+    font-size: 1.9rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+    color: #fff;
+  }
+
+  .genero p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.98rem;
+    max-width: 34ch;
+  }
+
+  .rock { --gradiente: linear-gradient(135deg, #2b0d0d, #120505); border-color: rgba(220, 70, 70, 0.25); }
+  .pop { --gradiente: linear-gradient(135deg, #331338, #170a1c); border-color: rgba(230, 100, 190, 0.25); }
+  .rap { --gradiente: linear-gradient(135deg, #1a1a1a, #0a0a0a); border-color: rgba(220, 200, 60, 0.25); }
+  .reggaeton { --gradiente: linear-gradient(135deg, #34103a, #170618); border-color: rgba(210, 80, 200, 0.25); }
+
+  footer {
+    text-align: center;
+    padding: 2rem 1.5rem 3rem;
+    color: var(--texto-tenue);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+
+  <section class="portada">
+    <p class="ceja">04BEATS</p>
+    <h1>Un recorrido por cuatro géneros musicales</h1>
+    <p>Explora un género distinto: su origen, su sonido y su cultura. Elige uno para empezar el recorrido.</p>
+  </section>
+
+  <nav class="mapa" aria-label="Secciones del sitio">
+    <a class="genero rock" href="rock/index.html">
+      <h2>Rock</h2>
+      <p>Guitarras distorsionadas y actitud, de los 50 al estadio moderno.</p>
+    </a>
+
+    <a class="genero pop" href="pop/index.html">
+      <h2>Pop</h2>
+      <p>Melodías pegajosas y producción brillante hechas para las listas de éxitos.</p>
+    </a>
+
+    <a class="genero rap" href="rap/index.html">
+      <h2>Rap</h2>
+      <p>Rima, flow y beats: la voz como instrumento principal desde el Bronx.</p>
+    </a>
+
+    <a class="genero reggaeton" href="reggaeton/index.html">
+      <h2>Reggaetón</h2>
+      <p>El dembow que salió de Puerto Rico y conquistó las listas globales.</p>
+    </a>
+  </nav>
+
+  <footer>
+    IDGS10B
+  </footer>
+
+</body>
+</html>

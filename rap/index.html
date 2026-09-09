@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rap — Atlas Sonoro</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/estilos.css">
+<style>
+  :root {
+    --color-fondo: #0d0d0d;
+    --color-texto: #f2f2ee;
+    --color-tenue: #a8a8a0;
+    --color-acento: #e6c83c;
+    --fuente-display: 'Space Grotesk', sans-serif;
+    --fuente-cuerpo: 'Inter', system-ui, sans-serif;
+
+    --color-borde: rgba(230, 200, 60, 0.35);
+    --color-volver-texto: var(--color-acento);
+    --color-volver-fondo: rgba(230, 200, 60, 0.1);
+    --color-volver-fondo-hover: rgba(230, 200, 60, 0.2);
+  }
+
+  body {
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: var(--fuente-cuerpo);
+    line-height: 1.6;
+  }
+
+  .portada {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 1.5rem 3rem;
+    max-width: 780px;
+    margin: 0 auto;
+    border-left: 6px solid var(--color-acento);
+    padding-left: 2rem;
+  }
+
+  .portada .ceja {
+    color: var(--color-acento);
+    font-family: var(--fuente-display);
+    font-weight: 500;
+    margin: 0 0 1rem;
+  }
+
+  .portada h1 {
+    font-family: var(--fuente-display);
+    font-weight: 700;
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    margin: 0 0 1.25rem;
+    letter-spacing: -0.01em;
+  }
+
+  .portada p {
+    color: var(--color-tenue);
+    font-size: 1.1rem;
+    max-width: 55ch;
+  }
+
+  .contenido {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 1.5rem 6rem;
+  }
+
+  .contenido h2 {
+    font-family: var(--fuente-display);
+    font-size: 1.7rem;
+    margin: 2.5rem 0 1rem;
+  }
+
+  .contenido p {
+    color: var(--color-tenue);
+    font-size: 1.05rem;
+  }
+
+  .elementos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(230, 200, 60, 0.2);
+    margin: 1.5rem 0;
+    border: 1px solid rgba(230, 200, 60, 0.2);
+  }
+
+  @media (max-width: 560px) {
+    .elementos { grid-template-columns: 1fr; }
+  }
+
+  .elementos div {
+    background: var(--color-fondo);
+    padding: 1.1rem;
+    font-size: 0.95rem;
+  }
+
+  .elementos strong {
+    display: block;
+    color: var(--color-acento);
+    font-family: var(--fuente-display);
+    margin-bottom: 0.3rem;
+  }
+</style>
+</head>
+<body>
+
+  <a class="volver" href="../index.html">&larr; Inicio</a>
+
+  <section class="portada">
+    <h1>Rap</h1>
+    <p>Nacido en el Bronx en los años 70, el rap convirtió la palabra hablada en instrumento: rima, ritmo y flow sobre una base de beats.</p>
+  </section>
+
+  <section class="contenido">
+    <h2>Un vistazo a su historia</h2>
+    <p>Surgió en las fiestas de barrio de Nueva York, donde los DJs extendían los breaks de percusión y los MCs animaban a la multitud hablando sobre el ritmo. De ahí pasó de la calle a las listas globales, pasando por la Costa Este, la Costa Oeste y el trap contemporáneo.</p>
+
+    <h2>Elementos clave</h2>
+    <div class="elementos">
+      <div><strong>Flow</strong>La forma en que el rapero acomoda las palabras sobre el ritmo.</div>
+      <div><strong>Rima</strong>Juegos de palabras y esquemas de rima como eje central.</div>
+      <div><strong>Beat</strong>Base instrumental, muchas veces con samples o cajas de ritmo.</div>
+      <div><strong>Lírica</strong>Historias, crítica social o autobiografía como contenido frecuente.</div>
+    </div>
+  </section>
+
+</body>
+</html>
