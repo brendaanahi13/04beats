@@ -103,6 +103,54 @@
     font-family: var(--fuente-display);
     margin-bottom: 0.3rem;
   }
+    .tarjetas-video {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    margin: 1.5rem 0;
+  }
+
+  @media (max-width: 700px) {
+    .tarjetas-video { grid-template-columns: 1fr; }
+  }
+
+  .tarjeta-video {
+    display: block;
+    text-decoration: none;
+    color: var(--color-texto);
+    background: rgba(230, 200, 60, 0.05);
+    border: 1px solid var(--color-borde);
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .tarjeta-video:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-acento);
+  }
+
+  .tarjeta-video img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+  }
+
+  .tarjeta-video-info {
+    padding: 0.9rem 1rem;
+  }
+
+  .tarjeta-video-info strong {
+    display: block;
+    font-family: var(--fuente-display);
+    color: var(--color-acento);
+    margin-bottom: 0.2rem;
+  }
+
+  .tarjeta-video-info span {
+    font-size: 0.85rem;
+    color: var(--color-tenue);
+  }
 </style>
 </head>
 <body>
@@ -129,7 +177,7 @@
     <div class="tarjetas-video">
 
       <a class="tarjeta-video" href="https://www.youtube.com/watch?v=PON_ID_AQUI" target="_blank" rel="noopener">
-        <img src="../img/rap-artista1.jpg" alt="Nombre del artista o canción">
+        <img src="https://i.discogs.com/Y1c8mfVyqHVbky8ovVE1TLzTEfPIl_Sblr1RVt84E80/rs:fit/g:sm/q:90/h:588/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTEwMDc1/Mi0xNjU4MjMxMTYz/LTk2ODguanBlZw.jpeg" alt="2PAC">
         <div class="tarjeta-video-info">
           <strong>Nombre de la canción</strong>
           <span>Artista — Año</span>
