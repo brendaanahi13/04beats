@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disco — Atlas Sonoro</title>
+<link href="https://fonts.googleapis.com/css2?family=Righteous&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/estilos.css">
+<style>
+  :root {
+    --color-fondo: #1a0e2e;
+    --color-texto: #fdf1ff;
+    --color-tenue: #c9a8db;
+    --color-acento: #f2c94c;
+    --color-acento-2: #ec5fd8;
+    --fuente-display: 'Righteous', cursive;
+    --fuente-cuerpo: 'Inter', system-ui, sans-serif;
+
+    --color-borde: rgba(242, 201, 76, 0.35);
+    --color-volver-texto: var(--color-acento);
+    --color-volver-fondo: rgba(242, 201, 76, 0.12);
+    --color-volver-fondo-hover: rgba(242, 201, 76, 0.22);
+  }
+
+  body {
+    background:
+      radial-gradient(circle at 15% 15%, rgba(242, 201, 76, 0.16), transparent 40%),
+      radial-gradient(circle at 85% 25%, rgba(236, 95, 216, 0.18), transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(95, 175, 236, 0.12), transparent 45%),
+      var(--color-fondo);
+    color: var(--color-texto);
+    font-family: var(--fuente-cuerpo);
+    line-height: 1.6;
+  }
+
+  .portada {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 1.5rem 3rem;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .portada .ceja {
+    color: var(--color-acento);
+    font-family: var(--fuente-display);
+    font-size: 1rem;
+    margin: 0 0 1rem;
+  }
+
+  .portada h1 {
+    font-family: var(--fuente-display);
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    margin: 0 0 1.25rem;
+    background: linear-gradient(90deg, var(--color-acento), var(--color-acento-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .portada p {
+    color: var(--color-tenue);
+    font-size: 1.15rem;
+    max-width: 55ch;
+  }
+
+  .contenido {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 1.5rem 6rem;
+  }
+
+  .contenido h2 {
+    font-family: var(--fuente-display);
+    font-size: 1.6rem;
+    margin: 2.5rem 0 1rem;
+    color: var(--color-acento);
+  }
+
+  .contenido p {
+    color: var(--color-tenue);
+    font-size: 1.05rem;
+  }
+
+  ul.hitos {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    display: grid;
+    gap: 1rem;
+  }
+
+  ul.hitos li {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: 1rem;
+    align-items: baseline;
+  }
+
+  ul.hitos .anio {
+    font-family: var(--fuente-display);
+    color: var(--color-acento-2);
+    font-size: 1.05rem;
+  }
+
+  ul.lista-artistas {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  ul.lista-artistas li {
+    padding-left: 1rem;
+    border-left: 2px solid rgba(242, 201, 76, 0.35);
+    font-size: 0.98rem;
+  }
+
+  ul.lista-artistas strong {
+    color: var(--color-texto);
+    font-family: var(--fuente-display);
+    font-size: 0.95rem;
+  }
+</style>
+</head>
+<body>
+
+  <a class="volver" href="../index.html">&larr; Inicio</a>
+
+  <section class="portada">
+    <p class="ceja">Sección 5</p>
+    <h1>Disco</h1>
+    <p>Nacido a inicios de los 70 en los clubes nocturnos de Estados Unidos, el disco convirtió la pista de baile en el centro de la música: ritmo constante, orquestaciones brillantes y una filosofía de fiesta y libertad.</p>
+  </section>
+
+  <section class="contenido">
+    <h2>Un vistazo a su historia</h2>
+    <ul class="hitos">
+      <li><span class="anio">1973</span><span>Los clubes de Nueva York, como el Loft, sientan las bases de la cultura disco.</span></li>
+      <li><span class="anio">1977</span><span>La película "Saturday Night Fever" y su soundtrack de los Bee Gees llevan el género al mundo entero.</span></li>
+      <li><span class="anio">1978</span><span>"I Will Survive" de Gloria Gaynor se vuelve himno del género.</span></li>
+      <li><span class="anio">1979</span><span>El movimiento "Disco Demolition Night" marca el inicio de su declive comercial en EE. UU.</span></li>
+      <li><span class="anio">Hoy</span><span>Su influencia sigue viva en el house, el nu-disco y el pop contemporáneo.</span></li>
+    </ul>
+
+    <h2>Artistas clave</h2>
+    <ul class="lista-artistas">
+      <li><strong>Bee Gees</strong> — voces agudas y armonías que definieron el sonido de la era, con temas como "Stayin' Alive".</li>
+      <li><strong>Donna Summer</strong> — la "Reina del Disco", pionera también del uso de sintetizadores en el género.</li>
+      <li><strong>Chic</strong> — liderados por Nile Rodgers, responsables de líneas de bajo y guitarra funk icónicas.</li>
+      <li><strong>Gloria Gaynor</strong> — autora de uno de los himnos más reconocidos del género.</li>
+      <li><strong>ABBA</strong> — fusionaron el disco con el pop escandinavo y lo llevaron a las listas globales.</li>
+      <li><strong>Earth, Wind & Fire</strong> — mezclaron disco, funk y soul con arreglos orquestales elaborados.</li>
+    </ul>
+
+    <h2>Características del sonido</h2>
+    <p>Un bombo marcado en cada tiempo (el "four-on-the-floor"), líneas de bajo groovy, secciones de cuerdas y metales, y coros pensados para cantarse en grupo en la pista de baile.</p>
+  </section>
+
+</body>
+</html>
