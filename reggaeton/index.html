@@ -102,6 +102,38 @@
   ul.lista strong {
     color: var(--color-texto);
   }
+
+  /* Estilos para las tarjetas de canciones */
+  .tarjetas-canciones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .tarjeta-cancion {
+    background: var(--color-fondo-2);
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+
+  .tarjeta-cancion h3 {
+    font-family: var(--fuente-display);
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem;
+    color: var(--color-texto);
+  }
+
+  .tarjeta-cancion p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .tarjeta-cancion audio {
+    width: 100%;
+    height: 40px;
+  }
 </style>
 </head>
 <body>
@@ -128,7 +160,36 @@
 
     <h2>Características del sonido</h2>
     <p>El patrón rítmico del dembow marca cada tema, acompañado de bajos pesados y voces que combinan canto y rap.</p>
-  </section>
+
+   <!-- Éxitos e Íconos del Género -->
+    <h2>Éxitos e Íconos del Género</h2>
+    <div class="tarjetas-canciones">
+
+      <article class="tarjeta-cancion">
+        <h3>Playero 37 — DJ Playero ft. Daddy Yankee (1992)</h3>
+        <p>Punto clave de los 90s donde el dembow y el rap en español dieron forma al underground.</p>
+        <audio controls src="playero 37 Daddy Yankee.mp3">
+          Tu navegador no soporta el elemento de audio.
+        </audio>
+      </article>
+
+      <article class="tarjeta-cancion">
+        <h3>Gasolina — Daddy Yankee (2004)</h3>
+        <p>El tema de 2004 que internacionalizó el reggaetón a nivel mundial.</p>
+        <audio controls src="Daddy Yankee - Gasolina.mp3">
+          Tu navegador no soporta el elemento de audio.
+        </audio>
+      </article>
+
+      <article class="tarjeta-cancion">
+        <h3>Safaera — Bad Bunny (2020)</h3>
+        <p>Un homenaje moderno al perreo clásico con múltiples cambios de ritmo.</p>
+        <audio controls src="Safaera - Bad Bunny.mp3">
+          Tu navegador no soporta el elemento de audio.
+        </audio>
+      </article>
+
+    </div>
 
 </body>
 </html>

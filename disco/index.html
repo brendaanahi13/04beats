@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Disco — Atlas Sonoro</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Righteous&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/estilos.css">
+
+<style>
+  :root {
+    --color-fondo: #1a0e2e;
+    --color-texto: #fdf1ff;
+    --color-tenue: #c9a8db;
+    --color-acento: #f2c94c;
+    --color-acento-2: #ec5fd8;
+
+    --fuente-display: 'Righteous', cursive;
+    --fuente-cuerpo: 'Inter', system-ui, sans-serif;
+
+    --color-borde: rgba(242, 201, 76, 0.35);
+    --color-volver-texto: var(--color-acento);
+    --color-volver-fondo: rgba(242, 201, 76, 0.12);
+    --color-volver-fondo-hover: rgba(242, 201, 76, 0.22);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background:
+      radial-gradient(circle at 15% 15%, rgba(242, 201, 76, 0.16), transparent 40%),
+      radial-gradient(circle at 85% 25%, rgba(236, 95, 216, 0.18), transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(95, 175, 236, 0.12), transparent 45%),
+      var(--color-fondo);
+
+    color: var(--color-texto);
+    font-family: var(--fuente-cuerpo);
+    line-height: 1.6;
+  }
+
+  .portada {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 1.5rem 3rem;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .portada .ceja {
+    color: var(--color-acento);
+    font-family: var(--fuente-display);
+    font-size: 1rem;
+    margin: 0 0 1rem;
+  }
+
+  .portada h1 {
+    font-family: var(--fuente-display);
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    margin: 0 0 1.25rem;
+
+    background: linear-gradient(
+      90deg,
+      var(--color-acento),
+      var(--color-acento-2)
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .portada p {
+    color: var(--color-tenue);
+    font-size: 1.15rem;
+    max-width: 55ch;
+  }
+
+  .contenido {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 1.5rem 6rem;
+  }
+
+  .contenido h2 {
+    font-family: var(--fuente-display);
+    font-size: 1.6rem;
+    margin: 2.5rem 0 1rem;
+    color: var(--color-acento);
+  }
+
+  .contenido p {
+    color: var(--color-tenue);
+    font-size: 1.05rem;
+  }
+
+  .linea-tiempo {
+    position: relative;
+    margin: 2rem 0 3rem;
+    padding-left: 2rem;
+  }
+
+  .linea-tiempo::before {
+    content: "";
+    position: absolute;
+    left: 0.55rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+
+    background: linear-gradient(
+      var(--color-acento),
+      var(--color-acento-2)
+    );
+  }
+
+  .evento {
+    position: relative;
+    display: grid;
+    grid-template-columns: 135px 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    align-items: start;
+  }
+
+  .evento:last-child {
+    margin-bottom: 0;
+  }
+
+  .evento::before {
+    content: "";
+    position: absolute;
+    left: -1.75rem;
+    top: 1.2rem;
+
+    width: 13px;
+    height: 13px;
+
+    border-radius: 50%;
+    background: var(--color-acento);
+
+    border: 3px solid var(--color-fondo);
+
+    box-shadow: 0 0 0 2px var(--color-acento-2);
+  }
+
+  .evento a {
+    display: block;
+  }
+
+  .evento img {
+    width: 135px;
+    height: 100px;
+
+    object-fit: cover;
+
+    border-radius: 6px;
+    border: 1px solid var(--color-borde);
+
+    display: block;
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+
+  .evento img:hover {
+    transform: scale(1.04);
+    filter: brightness(1.15);
+  }
+
+  .evento .anio {
+    font-family: var(--fuente-display);
+    color: var(--color-acento-2);
+    font-size: 1.3rem;
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .evento h3 {
+    font-family: var(--fuente-display);
+    color: var(--color-acento);
+    font-size: 1.15rem;
+    margin: 0 0 0.35rem;
+  }
+
+  .evento p {
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .canciones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0 3rem;
+  }
+
+  .cancion {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 145px;
+    padding: 1.2rem;
+
+    text-decoration: none;
+    color: var(--color-texto);
+
+    background: rgba(0, 0, 0, 0.22);
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+
+    transition:
+      transform 0.2s ease,
+      background 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .cancion:hover {
+    transform: translateY(-4px);
+    background: rgba(236, 95, 216, 0.12);
+    border-color: var(--color-acento-2);
+  }
+
+  .cancion .icono {
+    font-size: 1.7rem;
+    color: var(--color-acento);
+    margin-bottom: 0.7rem;
+  }
+
+  .cancion strong {
+    display: block;
+    color: var(--color-acento);
+    font-family: var(--fuente-display);
+    font-size: 1.05rem;
+    line-height: 1.3;
+  }
+
+  .cancion span {
+    display: block;
+    color: var(--color-tenue);
+    font-size: 0.85rem;
+    margin-top: 0.4rem;
+  }
+
+  .cancion .youtube {
+    color: var(--color-acento-2);
+    font-size: 0.8rem;
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 560px) {
+
+    .evento {
+      grid-template-columns: 1fr;
+      gap: 0.7rem;
+    }
+
+    .evento img {
+      width: 100%;
+      height: 150px;
+    }
+
+    .linea-tiempo {
+      padding-left: 1.8rem;
+    }
+
+    .canciones {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+  <a class="volver" href="../index.html">&larr; Inicio</a>
+  <section class="portada">
+    <p class="ceja">Sección 5</p>
+    <h1>Disco</h1>
+    <p>
+      Nacido a inicios de los 70 en los clubes nocturnos de Estados
+      Unidos, el disco convirtió la pista de baile en el centro de
+      la música: ritmo constante, orquestaciones brillantes y una
+      filosofía de fiesta y libertad.
+    </p>
+  </section>
+
+  <section class="contenido">
+    <h2>Un vistazo a su historia</h2>
+    <div class="linea-tiempo">
+      <article class="evento">
+        <a href="https://es.wikipedia.org/wiki/M%C3%BAsica_disco"
+           target="_blank"
+           rel="noopener noreferrer">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwE9FnDrp_krGjTabxkD10sU0e1tbXfL-FwhTwqOrHe4haVILCbUR5mze0&s=10"
+            alt="pista de baile">
+        </a>
+
+        <div>
+          <span class="anio">1973</span>
+          <h3>El nacimiento del disco</h3>
+          <p>
+            Los clubes de Nueva York, como The Loft, sientan las bases de la cultura disco.
+          </p>
+        </div>
+      </article>
+
+      <article class="evento">
+        <a href="https://es.wikipedia.org/wiki/Saturday_Night_Fever"
+           target="_blank"
+           rel="noopener noreferrer">
+          <img
+            src="https://www.thisdayinmusic.com/wp-content/uploads/1946/09/BeeGees-credit-Michael-Ochs.webp"
+            alt="Bee Gees">
+        </a>
+
+        <div>
+          <span class="anio">1977</span>
+          <h3>La fiebre del baile</h3>
+          <p>
+            La película “Saturday Night Fever” y su soundtrack de los Bee Gees llevan el género al mundo entero.
+          </p>
+        </div>
+      </article>
+
+      <article class="evento">
+        <a href="https://www.gloriagaynor.com/videos/i-will-survive/"
+           target="_blank"
+           rel="noopener noreferrer">
+          <img
+            src="https://tvandshow.com/wp-content/uploads/2019/09/gaynor-1024x638.jpg"
+            alt="Gloria Gaynor">
+        </a>
+
+        <div>
+          <span class="anio">1978</span>
+          <h3>Un himno de libertad</h3>
+          <p>
+            “I Will Survive”, de Gloria Gaynor, se vuelve uno de
+            los himnos más reconocidos del género.
+          </p>
+        </div>
+      </article>
+
+      <article class="evento">
+        <a href="https://es.wikipedia.org/wiki/Disco_Demolition_Night"
+           target="_blank"
+           rel="noopener noreferrer">
+          <img
+            src="https://myq105.com/uploads/2021/03/GettyImages-1906833-e1616266997377.jpg?format=auto&optimize=high&width=1440"
+            alt="Musica disco">
+        </a>
+
+        <div>
+          <span class="anio">1979</span>
+          <h3>El cambio de una era</h3>
+          <p>
+            El movimiento “Disco Demolition Night” marca un momento
+            importante en el declive comercial del disco en Estados Unidos.
+          </p>
+        </div>
+      </article>
+
+      <article class="evento">
+        <a href="https://es.wikipedia.org/wiki/Nu-disco"
+           target="_blank"
+           rel="noopener noreferrer">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzR0fARANq12ql0wSJRHL_1quHU1-mYgXfkSKpIqYzz6QJA4aErZl7WAM&s=1"
+            alt="Pop contemporáneo">
+        </a>
+
+        <div>
+          <span class="anio">Hoy</span>
+          <h3>Un ritmo que permanece</h3>
+          <p>
+            Su influencia sigue viva en el house, el nu-disco y
+            el pop contemporáneo.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <h2>Canciones icónicas</h2>
+    <p>
+      Conoce algunos de los temas más representativos de la música
+      disco. Haz clic en una tarjeta para escucharla en YouTube.
+    </p>
+
+    <div class="canciones">
+      <a
+        class="cancion"
+        href="https://www.youtube.com/watch?v=fNFzfwLM72c"
+        target="_blank"
+        rel="noopener noreferrer">
+        <div>
+          <div class="icono">♫</div>
+          <strong>Stayin' Alive</strong>
+          <span>Bee Gees — 1977</span>
+        </div>
+        <span class="youtube">▶ Ver en YouTube</span>
+      </a>
+
+      <a
+        class="cancion"
+        href="https://www.youtube.com/watch?v=aXgSHL7efKg"
+        target="_blank"
+        rel="noopener noreferrer">
+        <div>
+          <div class="icono">♫</div>
+          <strong>Le Freak</strong>
+          <span>Chic — 1978</span>
+        </div>
+        <span class="youtube">▶ Ver en YouTube</span>
+      </a>
+
+      <a
+        class="cancion"
+        href="https://www.youtube.com/watch?v=FHhZPp08s74"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        <div>
+          <div class="icono">♫</div>
+          <strong>I Will Survive</strong>
+          <span>Gloria Gaynor — 1978</span>
+        </div>
+        <span class="youtube">▶ Ver en YouTube</span>
+      </a>
+
+    </div>
+
+    <h2>Características del sonido</h2>
+
+    <p>
+      Un bombo marcado en cada tiempo (el "four-on-the-floor"),
+      líneas de bajo groovy, secciones de cuerdas y metales,
+      y coros pensados para cantarse en grupo en la pista de baile.
+    </p>
+
+  </section>
+
+</body>
+</html>

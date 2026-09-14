@@ -1,133 +1,1593 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Rock — Atlas Sonoro</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="../css/estilos.css">
+
 <style>
-  :root {
-    --color-fondo: #131010;
-    --color-texto: #f2eeee;
-    --color-tenue: #b8a9a9;
-    --color-acento: #e2453f;
-    --fuente-display: 'Oswald', sans-serif;
-    --fuente-cuerpo: 'Inter', system-ui, sans-serif;
 
-    --color-borde: rgba(226, 69, 63, 0.4);
-    --color-volver-texto: #fff;
-    --color-volver-fondo: rgba(226, 69, 63, 0.15);
-    --color-volver-fondo-hover: rgba(226, 69, 63, 0.28);
-  }
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+========================================================= */
 
-  body {
-    background: var(--color-fondo);
-    color: var(--color-texto);
-    font-family: var(--fuente-cuerpo);
-    line-height: 1.6;
-  }
+:root {
+  --color-fondo: #100d0d;
+  --color-fondo-2: #181212;
+  --color-texto: #f4eeee;
+  --color-tenue: #b9aaaa;
+  --color-acento: #e2453f;
+  --color-acento-oscuro: #8e211e;
+  --color-borde: rgba(226, 69, 63, 0.4);
+
+  --fuente-display: 'Oswald', sans-serif;
+  --fuente-cuerpo: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(226, 69, 63, 0.08),
+      transparent 35%
+    ),
+    var(--color-fondo);
+
+  color: var(--color-texto);
+  font-family: var(--fuente-cuerpo);
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   BOTÓN INICIO
+========================================================= */
+
+.volver {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+
+  color: white;
+  text-decoration: none;
+
+  background: rgba(20, 10, 10, 0.8);
+
+  border: 1px solid var(--color-borde);
+
+  padding: 10px 18px;
+
+  border-radius: 6px;
+
+  transition: 0.3s;
+
+  backdrop-filter: blur(10px);
+}
+
+.volver:hover {
+  background: rgba(226, 69, 63, 0.35);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   PORTADA
+========================================================= */
+
+.portada {
+
+  min-height: 90vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding: 7rem 1.5rem 4rem;
+
+  max-width: 950px;
+
+  margin: auto;
+
+  border-bottom: 6px solid var(--color-acento);
+}
+
+.portada .ceja {
+
+  color: var(--color-acento);
+
+  font-family: var(--fuente-display);
+
+  letter-spacing: 0.12em;
+
+  font-size: 1rem;
+
+  margin: 0 0 1rem;
+
+  text-transform: uppercase;
+}
+
+.portada h1 {
+
+  font-family: var(--fuente-display);
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  font-size: clamp(4rem, 11vw, 8rem);
+
+  line-height: 0.9;
+
+  margin: 0 0 1.5rem;
+
+  letter-spacing: -0.02em;
+}
+
+.portada p {
+
+  color: var(--color-tenue);
+
+  font-size: 1.1rem;
+
+  max-width: 65ch;
+}
+
+
+/* =========================================================
+   IMAGEN PRINCIPAL
+========================================================= */
+
+.imagen-portada {
+
+  width: 100%;
+
+  height: 430px;
+
+  object-fit: cover;
+
+  display: block;
+
+  margin-top: 2rem;
+
+  border-radius: 8px;
+
+  border: 1px solid var(--color-borde);
+
+  filter: brightness(0.7) contrast(1.1);
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.6);
+
+  transition: 0.4s;
+}
+
+.imagen-portada:hover {
+
+  filter: brightness(0.85) contrast(1.1);
+
+}
+
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
+
+.contenido {
+
+  max-width: 950px;
+
+  margin: auto;
+
+  padding: 3rem 1.5rem 6rem;
+}
+
+.contenido h2 {
+
+  font-family: var(--fuente-display);
+
+  text-transform: uppercase;
+
+  font-size: 2rem;
+
+  letter-spacing: 0.04em;
+
+  margin: 4rem 0 1rem;
+
+  color: white;
+}
+
+.contenido h2::before {
+
+  content: "///";
+
+  color: var(--color-acento);
+
+  margin-right: 10px;
+}
+
+.contenido p {
+
+  color: var(--color-tenue);
+
+  font-size: 1.05rem;
+}
+
+
+/* =========================================================
+   IMÁGENES DE SECCIÓN
+========================================================= */
+
+.imagen-seccion {
+
+  width: 100%;
+
+  height: 330px;
+
+  object-fit: cover;
+
+  display: block;
+
+  margin: 1.5rem 0 2rem;
+
+  border-radius: 7px;
+
+  border: 1px solid var(--color-borde);
+
+  filter: brightness(0.72);
+
+}
+
+
+/* =========================================================
+   HISTORIA / ETAPAS
+========================================================= */
+
+.decadas {
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 2px;
+
+  margin: 2rem 0;
+
+  background: var(--color-acento-oscuro);
+}
+
+.decada {
+
+  background: var(--color-fondo-2);
+
+  overflow: hidden;
+}
+
+.decada img {
+
+  width: 100%;
+
+  height: 210px;
+
+  object-fit: cover;
+
+  display: block;
+
+  filter: brightness(0.65);
+
+  transition: 0.4s;
+}
+
+.decada:hover img {
+
+  filter: brightness(0.9);
+
+  transform: scale(1.04);
+}
+
+.decada-info {
+
+  padding: 1.4rem;
+}
+
+.decada strong {
+
+  display: block;
+
+  font-family: var(--fuente-display);
+
+  color: var(--color-acento);
+
+  font-size: 1.5rem;
+
+  margin-bottom: 0.4rem;
+}
+
+.decada-info p {
+
+  margin: 0;
+
+  font-size: 0.95rem;
+}
+
+
+/* =========================================================
+   ARTISTAS
+========================================================= */
+
+.artistas {
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 18px;
+
+  margin-top: 2rem;
+}
+
+.artista {
+
+  background: var(--color-fondo-2);
+
+  border: 1px solid var(--color-borde);
+
+  overflow: hidden;
+
+  border-radius: 7px;
+
+  transition: 0.3s;
+}
+
+.artista:hover {
+
+  transform: translateY(-6px);
+
+  border-color: var(--color-acento);
+
+  box-shadow:
+    0 15px 30px rgba(0,0,0,0.4);
+}
+
+.artista img {
+
+  width: 100%;
+
+  height: 240px;
+
+  object-fit: cover;
+
+  display: block;
+
+  filter: brightness(0.68);
+
+  transition: 0.4s;
+}
+
+.artista:hover img {
+
+  filter: brightness(0.85);
+
+  transform: scale(1.03);
+}
+
+.artista-info {
+
+  padding: 1.3rem;
+}
+
+.artista h3 {
+
+  font-family: var(--fuente-display);
+
+  color: var(--color-acento);
+
+  font-size: 1.5rem;
+
+  text-transform: uppercase;
+
+  margin: 0 0 0.5rem;
+}
+
+.artista p {
+
+  font-size: 0.95rem;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   CARACTERÍSTICAS DEL SONIDO
+========================================================= */
+
+.caracteristicas {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 25px;
+
+  align-items: center;
+
+  margin-top: 2rem;
+}
+
+.caracteristicas img {
+
+  width: 100%;
+
+  height: 380px;
+
+  object-fit: cover;
+
+  display: block;
+
+  border-radius: 7px;
+
+  border: 1px solid var(--color-borde);
+
+  filter: brightness(0.7);
+}
+
+.lista-caracteristicas {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.caracteristica {
+
+  padding: 15px;
+
+  background: rgba(255,255,255,0.025);
+
+  border-left: 3px solid var(--color-acento);
+
+  transition: 0.3s;
+}
+
+.caracteristica:hover {
+
+  background: rgba(226,69,63,0.08);
+
+  transform: translateX(4px);
+}
+
+.caracteristica strong {
+
+  color: white;
+}
+
+
+/* =========================================================
+   OPINIONES DE LA GENTE
+========================================================= */
+
+.opiniones {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 15px;
+
+  margin-top: 2rem;
+}
+
+.opinion {
+
+  padding: 1.5rem;
+
+  background: rgba(255,255,255,0.025);
+
+  border: 1px solid rgba(226,69,63,0.25);
+
+  border-radius: 6px;
+}
+
+.opinion span {
+
+  display: block;
+
+  color: var(--color-acento);
+
+  font-family: var(--fuente-display);
+
+  font-size: 1.1rem;
+
+  margin-bottom: 0.6rem;
+}
+
+.opinion p {
+
+  margin: 0;
+
+  font-size: 0.95rem;
+}
+
+
+/* =========================================================
+   FRASE FINAL
+========================================================= */
+
+.frase {
+
+  border-left: 5px solid var(--color-acento);
+
+  padding: 1.7rem;
+
+  margin-top: 4rem;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(226,69,63,0.1),
+      transparent
+    );
+}
+
+.frase p {
+
+  margin: 0;
+
+  font-size: 1.2rem;
+
+  font-style: italic;
+
+  color: white;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 750px) {
 
   .portada {
-    min-height: 55vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 6rem 1.5rem 3rem;
-    max-width: 780px;
-    margin: 0 auto;
-    border-bottom: 6px solid var(--color-acento);
-  }
 
-  .portada .ceja {
-    color: var(--color-acento);
-    font-family: var(--fuente-display);
-    letter-spacing: 0.03em;
-    font-size: 1rem;
-    margin: 0 0 1rem;
+    min-height: auto;
+
+    padding:
+      6rem
+      1rem
+      3rem;
   }
 
   .portada h1 {
-    font-family: var(--fuente-display);
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: clamp(3rem, 8vw, 5.5rem);
-    line-height: 0.95;
-    margin: 0 0 1.25rem;
+
+    font-size: 4.5rem;
   }
 
-  .portada p {
-    color: var(--color-tenue);
-    font-size: 1.1rem;
-    max-width: 55ch;
+  .imagen-portada {
+
+    height: 280px;
   }
 
   .contenido {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 3rem 1.5rem 6rem;
-  }
 
-  .contenido h2 {
-    font-family: var(--fuente-display);
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    letter-spacing: 0.02em;
-    margin: 2.5rem 0 1rem;
-  }
-
-  .contenido p {
-    color: var(--color-tenue);
-    font-size: 1.05rem;
+    padding:
+      2rem
+      1rem
+      4rem;
   }
 
   .decadas {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1px;
-    background: rgba(226, 69, 63, 0.25);
-    margin: 1.5rem 0;
+
+    grid-template-columns: 1fr;
   }
 
-  @media (max-width: 560px) {
-    .decadas { grid-template-columns: 1fr; }
+  .artistas {
+
+    grid-template-columns: 1fr;
   }
 
-  .decadas div {
-    background: var(--color-fondo);
-    padding: 1.25rem;
+  .caracteristicas {
+
+    grid-template-columns: 1fr;
   }
 
-  .decadas strong {
-    display: block;
-    font-family: var(--fuente-display);
-    color: var(--color-acento);
-    font-size: 1.1rem;
-    margin-bottom: 0.35rem;
+  .caracteristicas img {
+
+    height: 280px;
   }
+
+  .opiniones {
+
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 450px) {
+
+  .volver {
+
+    top: 12px;
+
+    left: 12px;
+
+    padding:
+      8px
+      13px;
+
+    font-size: 0.85rem;
+  }
+
+  .portada h1 {
+
+    font-size: 3.8rem;
+  }
+
+  .imagen-portada {
+
+    height: 220px;
+  }
+
+  .decada img {
+
+    height: 190px;
+  }
+
+  .artista img {
+
+    height: 220px;
+  }
+
+}
+
 </style>
 </head>
+
+
 <body>
 
-  <a class="volver" href="../index.html">&larr; Inicio</a>
 
-  <section class="portada">
-    <h1>Rock</h1>
-    <p>Guitarras eléctricas, baterías al frente y una actitud de ruptura: el rock nació en los 50 y se reinventó en cada década siguiente.</p>
-  </section>
+<!-- =====================================================
+     BOTÓN INICIO
+===================================================== -->
 
-  <section class="contenido">
-    <h2>Etapas del género</h2>
-    <div class="decadas">
-      <div><strong>1950s</strong>Rock and roll: Chuck Berry, Elvis Presley y el nacimiento del género.</div>
-      <div><strong>1970s</strong>Hard rock y punk: de Led Zeppelin a los Sex Pistols.</div>
-      <div><strong>1990s</strong>Grunge y rock alternativo lideran las listas con Nirvana y Pearl Jam.</div>
-      <div><strong>Hoy</strong>El rock se mezcla con otros géneros y sigue vivo en festivales y estadios.</div>
+<a class="volver" href="../index.html">
+  &larr; Inicio
+</a>
+
+
+
+<!-- =====================================================
+     PORTADA
+===================================================== -->
+
+<section class="portada">
+
+  <p class="ceja">
+    Atlas Sonoro / Géneros musicales
+  </p>
+
+  <h1>
+    Rock
+  </h1>
+
+  <p>
+    Guitarras eléctricas, riffs, baterías, distorsión y una actitud
+    que ha acompañado a generaciones enteras. El rock no es solamente
+    un género: es una forma de expresión que se transformó en
+    hard rock, heavy metal, punk, grunge, nu metal y muchas otras
+    corrientes.
+  </p>
+
+
+  <img
+    class="imagen-portada"
+    src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=1400&q=85"
+    alt="Concierto de rock"
+    onerror="this.src='https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1400&q=85'"
+  >
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTENIDO
+===================================================== -->
+
+<section class="contenido">
+
+
+<!-- =====================================================
+     QUÉ ES EL ROCK
+===================================================== -->
+
+<h2>
+  ¿Qué es el Rock?
+</h2>
+
+<p>
+
+  El rock surgió durante la década de 1950 a partir de la mezcla
+  de estilos como el blues, el rhythm and blues y el country.
+  Con el paso del tiempo comenzó a transformarse y a dar origen
+  a una enorme cantidad de estilos.
+
+</p>
+
+<p>
+
+  Para muchas personas, el rock representa libertad, rebeldía,
+  identidad y una manera de expresar emociones que no siempre
+  pueden explicarse con palabras.
+
+</p>
+
+
+<img
+  class="imagen-seccion"
+  src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=85"
+  alt="Público durante un concierto de rock"
+  onerror="this.src='https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=85'"
+>
+
+
+
+<!-- =====================================================
+     HISTORIA
+===================================================== -->
+
+<h2>
+  Evolución del Rock
+</h2>
+
+
+<div class="decadas">
+
+
+  <!-- 1950 -->
+
+  <div class="decada">
+
+    <img
+      src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=900&q=85"
+      alt="Rock and roll"
+      onerror="this.src='https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=900&q=85'"
+    >
+
+    <div class="decada-info">
+
+      <strong>
+        1950s
+      </strong>
+
+      <p>
+        El rock and roll comenzó a conquistar al público.
+        Artistas como Chuck Berry y Elvis Presley ayudaron
+        a convertirlo en un fenómeno cultural.
+      </p>
+
     </div>
 
-    <h2>Características del sonido</h2>
-    <p>Guitarra eléctrica distorsionada, bajo y batería como columna rítmica, y estructuras de verso-coro pensadas para tocarse en vivo.</p>
-  </section>
+  </div>
+
+
+
+  <!-- 1970 -->
+
+  <div class="decada">
+
+    <img
+      src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=900&q=85"
+      alt="Hard rock"
+      onerror="this.src='https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=85'"
+    >
+
+    <div class="decada-info">
+
+      <strong>
+        1970s
+      </strong>
+
+      <p>
+        El hard rock y el heavy metal comenzaron a tomar
+        una identidad propia con bandas como Black Sabbath,
+        Led Zeppelin y Deep Purple.
+      </p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- 1980 -->
+
+  <div class="decada">
+
+    <img
+      src="https://images.unsplash.com/photo-1524650359799-842906ca1c06?auto=format&fit=crop&w=900&q=85"
+      alt="Heavy metal"
+      onerror="this.src='https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=85'"
+    >
+
+    <div class="decada-info">
+
+      <strong>
+        1980s
+      </strong>
+
+      <p>
+        El heavy metal y el hard rock alcanzaron una enorme
+        popularidad. Scorpions, Ozzy Osbourne y muchas otras
+        bandas se convirtieron en referentes.
+      </p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- 1990 -->
+
+  <div class="decada">
+
+    <img
+      src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=85"
+      alt="Rock de los años 1990"
+      onerror="this.src='https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=85'"
+    >
+
+    <div class="decada-info">
+
+      <strong>
+        1990s
+      </strong>
+
+      <p>
+        Aparecieron y crecieron estilos como el grunge,
+        el groove metal y el metal alternativo.
+        Pantera, Nirvana y otras bandas marcaron la década.
+      </p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- 2000 -->
+
+  <div class="decada">
+
+    <img
+      src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=85"
+      alt="Metal alternativo"
+      onerror="this.src='https://images.unsplash.com/photo-1521337581100-8ca9a73a5f79?auto=format&fit=crop&w=900&q=85'"
+    >
+
+    <div class="decada-info">
+
+      <strong>
+        2000s
+      </strong>
+
+      <p>
+        El nu metal y el metal alternativo llegaron a nuevas
+        generaciones con bandas como Korn y Deftones.
+      </p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- ACTUALIDAD -->
+
+  <div class="decada">
+
+    <img
+      src="https://images.unsplash.com/photo-1529502669403-6d3f0a1d7d7c?auto=format&fit=crop&w=900&q=85"
+      alt="Rock actual"
+      onerror="this.src='https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=900&q=85'"
+    >
+
+    <div class="decada-info">
+
+      <strong>
+        Actualidad
+      </strong>
+
+      <p>
+        El rock continúa mezclándose con metal, electrónica,
+        hip hop, pop y otros estilos, manteniendo una enorme
+        comunidad de seguidores.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SCORPIONS
+===================================================== -->
+
+<h2>
+  Scorpions
+</h2>
+
+<img
+  class="imagen-seccion"
+  src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=85"
+  alt="Concierto de hard rock"
+  onerror="this.src='https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1200&q=85'"
+>
+
+<p>
+
+  Scorpions es una de las bandas alemanas más reconocidas
+  dentro del hard rock. Su sonido combina guitarras potentes,
+  melodías memorables y baladas que también llegaron a un
+  público mucho más amplio.
+
+</p>
+
+<p>
+
+  Su trayectoria demuestra cómo una banda puede mantenerse
+  relevante durante diferentes generaciones sin abandonar
+  su identidad. Entre sus canciones más conocidas se encuentra
+  <em>Rock You Like a Hurricane</em>.
+
+</p>
+
+
+
+<!-- =====================================================
+     BLACK SABBATH
+===================================================== -->
+
+<h2>
+  Black Sabbath
+</h2>
+
+<img
+  class="imagen-seccion"
+  src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=85"
+  alt="Heavy metal en concierto"
+  onerror="this.src='https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1200&q=85'"
+>
+
+<p>
+
+  Black Sabbath es fundamental para entender el nacimiento
+  del heavy metal. Su sonido oscuro, pesado y basado en riffs
+  de guitarra ayudó a crear una nueva manera de entender
+  el rock.
+
+</p>
+
+<p>
+
+  La etapa con Ozzy Osbourne es especialmente importante
+  para la historia del género y convirtió a la banda en una
+  referencia para generaciones posteriores de músicos.
+
+</p>
+
+
+
+<!-- =====================================================
+     OZZY OSBOURNE
+===================================================== -->
+
+<h2>
+  Ozzy Osbourne
+</h2>
+
+<p>
+
+  Ozzy Osbourne se convirtió en una de las figuras más reconocibles
+  del heavy metal. Después de su etapa con Black Sabbath desarrolló
+  una importante carrera como solista.
+
+</p>
+
+<p>
+
+  Su imagen, su voz y su personalidad ayudaron a convertirlo
+  en uno de los personajes más reconocibles de la historia
+  del metal.
+
+</p>
+
+
+
+<!-- =====================================================
+     PANTERA
+===================================================== -->
+
+<h2>
+  Pantera
+</h2>
+
+<img
+  class="imagen-seccion"
+  src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=1200&q=85"
+  alt="Concierto de metal"
+  onerror="this.src='https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1200&q=85'"
+>
+
+<p>
+
+  Pantera llevó el metal hacia un sonido más agresivo y pesado.
+  Los riffs de Dimebag Darrell, la batería de Vinnie Paul y
+  la energía de sus presentaciones hicieron que la banda
+  se convirtiera en una referencia del groove metal.
+
+</p>
+
+<p>
+
+  Su influencia continúa presente en muchas bandas de metal
+  que surgieron después.
+
+</p>
+
+
+
+<!-- =====================================================
+     MISFITS
+===================================================== -->
+
+<h2>
+  Misfits
+</h2>
+
+<img
+  class="imagen-seccion"
+  src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=85"
+  alt="Punk rock en concierto"
+  onerror="this.src='https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=85'"
+>
+
+<p>
+
+  Misfits mezcló el punk con una estética inspirada en películas
+  de terror, monstruos y ciencia ficción. Su imagen y su música
+  ayudaron a construir una identidad completamente diferente
+  dentro del rock.
+
+</p>
+
+<p>
+
+  Su influencia llegó mucho más allá del punk. Su estética,
+  especialmente el famoso cráneo de la banda, se convirtió
+  en un símbolo reconocido dentro de la cultura popular.
+
+</p>
+
+
+
+<!-- =====================================================
+     KORN
+===================================================== -->
+
+<h2>
+  Korn
+</h2>
+
+<img
+  class="imagen-seccion"
+  src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1200&q=85"
+  alt="Concierto de metal alternativo"
+  onerror="this.src='https://images.unsplash.com/photo-1524650359799-842906ca1c06?auto=format&fit=crop&w=1200&q=85'"
+>
+
+<p>
+
+  Korn fue una de las bandas que ayudó a definir el nu metal.
+  Su sonido combinó riffs pesados, elementos de hip hop,
+  ambientes oscuros y letras relacionadas con emociones
+  personales y experiencias difíciles.
+
+</p>
+
+<p>
+
+  Para muchas personas, Korn representó una manera diferente
+  de escuchar metal y ayudó a que el género llegara a una
+  nueva generación.
+
+</p>
+
+
+
+<!-- =====================================================
+     DEFTONES
+===================================================== -->
+
+<h2>
+  Deftones
+</h2>
+
+<img
+  class="imagen-seccion"
+  src="https://images.unsplash.com/photo-1521337581100-8ca9a73a5f79?auto=format&fit=crop&w=1200&q=85"
+  alt="Concierto de rock alternativo"
+  onerror="this.src='https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=85'"
+>
+
+<p>
+
+  Deftones desarrolló una identidad propia combinando metal,
+  rock alternativo, shoegaze y atmósferas más experimentales.
+
+</p>
+
+<p>
+
+  Una de las características más interesantes de la banda
+  es el contraste entre momentos pesados y partes más
+  atmosféricas y melódicas.
+
+</p>
+
+
+
+<!-- =====================================================
+     CARACTERÍSTICAS
+========================================================= -->
+
+<h2>
+  Características del sonido
+</h2>
+
+
+<div class="caracteristicas">
+
+
+  <!-- IMAGEN DE GUITARRA -->
+  <!-- Esta es la imagen que sustituye la que no se veía -->
+
+  <img
+    src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=1000&q=85"
+    alt="Guitarra eléctrica durante un concierto"
+    onerror="this.src='https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1000&q=85'"
+  >
+
+
+  <div class="lista-caracteristicas">
+
+
+    <div class="caracteristica">
+
+      <strong>
+        🎸 Guitarra eléctrica
+      </strong>
+
+      <br>
+
+      Riffs, acordes, solos y distorsión son elementos
+      fundamentales de muchos estilos de rock y metal.
+
+    </div>
+
+
+    <div class="caracteristica">
+
+      <strong>
+        🥁 Batería
+      </strong>
+
+      <br>
+
+      La batería aporta fuerza, velocidad y personalidad
+      al ritmo de cada banda.
+
+    </div>
+
+
+    <div class="caracteristica">
+
+      <strong>
+        🔊 Distorsión
+      </strong>
+
+      <br>
+
+      El sonido distorsionado de las guitarras se convirtió
+      en una de las características más reconocibles
+      del rock pesado.
+
+    </div>
+
+
+    <div class="caracteristica">
+
+      <strong>
+        🎤 Voz
+      </strong>
+
+      <br>
+
+      Desde voces melódicas hasta gritos y registros
+      extremadamente agresivos, la voz también define
+      cada estilo.
+
+    </div>
+
+
+    <div class="caracteristica">
+
+      <strong>
+        ⚡ Energía
+      </strong>
+
+      <br>
+
+      El rock suele destacar por la intensidad de sus
+      canciones y de sus presentaciones en vivo.
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     ARTISTAS REPRESENTATIVOS
+========================================================= -->
+
+<h2>
+  Artistas representativos
+</h2>
+
+
+<div class="artistas">
+
+
+  <!-- SCORPIONS -->
+
+  <div class="artista">
+
+    <img
+      src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=85"
+      alt="Scorpions - hard rock"
+      onerror="this.src='https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=85'"
+    >
+
+    <div class="artista-info">
+
+      <h3>
+        Scorpions
+      </h3>
+
+      <p>
+        Hard rock alemán reconocido por sus riffs,
+        baladas y una trayectoria que abarca varias generaciones.
+      </p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- BLACK SABBATH -->
+
+  <div class="artista">
+
+    <img
+      src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=900&q=85"
+      alt="Black Sabbath - heavy metal"
+      onerror="this.src='https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=900&q=85'"
+    >
+
+    <div class="artista-info">
+
+      <h3>
+        Black Sabbath
+      </h3>
+
+      <p>
+        Una de las bandas fundamentales en la creación
+        y desarrollo del heavy metal.
+      </p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- OZZY -->
+
+  <div class="artista">
+
+    <img
+      src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=85"
+      alt="Ozzy Osbourne - metal"
+      onerror="this.src='https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=85'"
+    >
+
+    <div class="artista-info">
+
+      <h3>
+        Ozzy Osbourne
+      </h3>
+
+      <p>
+        Figura fundamental del heavy metal, tanto por
+        Black Sabbath como por su carrera solista.
+      </p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- PANTERA -->
+
+  <div class="artista">
+
+    <img
+      src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=85"
+      alt="Pantera - groove metal"
+      onerror="this.src='https://images.unsplash.com/photo-1524650359799-842906ca1c06?auto=format&fit=crop&w=900&q=85'"
+    >
+
+    <div class="artista-info">
+
+      <h3>
+        Pantera
+      </h3>
+
+      <p>
+        Banda fundamental para el desarrollo del groove metal
+        y de un sonido mucho más agresivo durante los 90.
+      </p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- MISFITS -->
+
+  <div class="artista">
+
+    <img
+      src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=85"
+      alt="Misfits - punk rock"
+      onerror="this.src='https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=85'"
+    >
+
+    <div class="artista-info">
+
+      <h3>
+        Misfits
+      </h3>
+
+      <p>
+        Punk de horror con una estética única inspirada
+        en películas de terror y ciencia ficción.
+      </p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- KORN -->
+
+  <div class="artista">
+
+    <img
+      src="https://images.unsplash.com/photo-1524650359799-842906ca1c06?auto=format&fit=crop&w=900&q=85"
+      alt="Korn - nu metal"
+      onerror="this.src='https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=85'"
+    >
+
+    <div class="artista-info">
+
+      <h3>
+        Korn
+      </h3>
+
+      <p>
+        Una de las bandas más importantes del nu metal,
+        conocida por su sonido oscuro y emocional.
+      </p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- DEFTONES -->
+
+  <div class="artista">
+
+    <img
+      src="https://images.unsplash.com/photo-1521337581100-8ca9a73a5f79?auto=format&fit=crop&w=900&q=85"
+      alt="Deftones - metal alternativo"
+      onerror="this.src='https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=85'"
+    >
+
+    <div class="artista-info">
+
+      <h3>
+        Deftones
+      </h3>
+
+      <p>
+        Metal alternativo caracterizado por combinar
+        agresividad, melodía y atmósferas experimentales.
+      </p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- EXTRA -->
+
+  <div class="artista">
+
+    <img
+      src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=900&q=85"
+      alt="Rock y metal"
+      onerror="this.src='https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=900&q=85'"
+    >
+
+    <div class="artista-info">
+
+      <h3>
+        Y muchos más
+      </h3>
+
+      <p>
+        Metallica, Nirvana, Iron Maiden, Slipknot,
+        System of a Down, Rammstein y muchas otras
+        bandas han dejado su propia huella.
+      </p>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     QUÉ OPINA LA GENTE
+========================================================= -->
+
+<h2>
+  ¿Qué opina la gente del Rock?
+</h2>
+
+
+<p>
+
+  El rock ha generado opiniones muy diferentes a lo largo
+  de su historia. Para algunas personas representa rebeldía,
+  libertad y una forma de cuestionar lo establecido.
+  Para otras simplemente es una manera de disfrutar
+  la música y compartirla con otras personas.
+
+</p>
+
+
+<div class="opiniones">
+
+
+  <div class="opinion">
+
+    <span>
+      "Libertad"
+    </span>
+
+    <p>
+      Muchas personas relacionan el rock con la libertad
+      de expresarse sin seguir las reglas de otros.
+    </p>
+
+  </div>
+
+
+  <div class="opinion">
+
+    <span>
+      "Identidad"
+    </span>
+
+    <p>
+      Para muchos fans, descubrir una banda o un estilo
+      termina formando parte de su propia identidad.
+    </p>
+
+  </div>
+
+
+  <div class="opinion">
+
+    <span>
+      "Comunidad"
+    </span>
+
+    <p>
+      Conciertos, festivales y comunidades de fans
+      mantienen vivo el género y conectan a personas
+      de diferentes generaciones.
+    </p>
+
+  </div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     FRASE FINAL
+========================================================= -->
+
+<div class="frase">
+
+  <p>
+
+    El rock cambia de sonido, cambia de generación y cambia
+    de escenario, pero mantiene algo que lo hace especial:
+    la libertad de hacer ruido, expresar lo que sientes
+    y encontrar a otras personas que sienten lo mismo.
+
+  </p>
+
+</div>
+
+
+</section>
+
 
 </body>
+
 </html>
